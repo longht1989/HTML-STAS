@@ -1,0 +1,82 @@
+/* ====================================
+   All region in project
+   ==================================== */
+
+
+/* zone global style */
+
+.zone {
+    margin-bottom: 20px;
+    &__title {
+        font-size: 16px;
+        line-height: 35px;
+        background: $brand-primary;
+        position: relative;
+        padding: 0 10px;
+        a {
+            color: white;
+        }
+    }
+    &__content {
+        @include clearfix();
+        padding: 10px;
+        background: #f0f0f0;
+        >ul {
+            >li {
+                &.is-active {
+                    a {
+                        color: $brand-primary;
+                    }
+                }
+                &+li {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    &--secondary {
+        .zone__title {
+            background: $brand-warning;
+        }
+    }
+}
+
+// counter
+.counter {
+    &__all {
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: $font-family-special;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 35px;
+        background: #fff;
+        letter-spacing: 2px;
+    }
+    &__wrap {
+        .fa {
+            margin-right: 5px;
+            font-size: 16px;
+            border-radius: 50%;
+            background: white;
+            text-align: center;
+            line-height: 32px;
+            width: 32px;
+        }
+        p {
+            margin-bottom: 5px;
+        }
+    }
+    &__number {
+        float: right;
+        text-align: right;
+        line-height: 32px;
+    }
+}
+
+// /* ads */
+.qc {
+    @include clearfix();
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -1,0 +1,150 @@
+/* style for story */
+
+.story {
+    @include clearfix;
+    margin-bottom: 12px;
+    position: relative;
+    &__thumb {
+        margin-bottom: 7px;
+        overflow: hidden;
+        position: relative;
+        img {
+            @include transition(all, 0.2, linear);
+            &::after {
+                @include transition(all, 0.4, ease);
+            }
+        }
+        a {
+            &::after {
+                @include transition(all, 0.4, ease);
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: black;
+                opacity: 0;
+            }
+        }
+        &:hover {
+            a {
+                &::after {
+                    opacity: 0.3;
+                }
+            }
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+    &__title {
+        font-size: 14px;
+        line-height: 19px;
+        font-weight: bold;
+    }
+    &__meta {
+        color: #999;
+        margin-top: 7px;
+        margin-bottom: 5px;
+        @include font-size(12, 16);
+    }
+    &__summary {
+        color: #555;
+        @include font-size(13, 18);
+    }
+    &__ranking {
+        position: absolute;
+        z-index: 0;
+        right: 0;
+        top: 50%;
+        @include font-size(28, 28);
+        font-weight: bold;
+        color: $brand-primary;
+        opacity: 0.2;
+        transform: translateY(-50%);
+    }
+    &__sponsor {
+        display: inline-block;
+        font-size: 12px;
+        color: $brand-primary;
+        font-weight: normal;
+        &::before {
+            content: '- ';
+            display: inline;
+            padding-left: 3px;
+        }
+    }
+    &--highlight {
+        .story__title {
+            @include font-size(22, 28);
+        }
+        @include breakpoint(xs) {
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        @include breakpoint(768px, 1023px) {
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+    }
+    &--featured {
+        .story__title {
+            @include font-size(18, 22);
+        }
+        +.story {
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+    }
+    &--bullet {
+        .story__title {
+            font-weight: normal;
+            padding-left: 15px;
+            position: relative;
+            &::before {
+                display: block;
+                content: '•';
+                color: $brand-primary;
+                font-size: 20px;
+                position: absolute;
+                top: 0px;
+                left: 0;
+            }
+        }
+    }
+    &--horizontal {
+        @include last-child-y;
+        .story__thumb {
+            // width: 80px;
+            // height: 60px;
+            float: left;
+            margin: 0 10px 0 0;
+        }
+    }
+    &--rare {
+        background: white;
+        padding: 0 10px 10px !important;
+        .story__thumb {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+    .latest-listing & {
+        @include breakpoint(xs) {
+            .story__thumb {
+                width: 120px;
+                float: left;
+                margin: 0 10px 0 0;
+            }
+        }
+        @include breakpoint(768px, 1023px) {
+            .story__thumb {
+                width: 120px;
+                float: left;
+                margin: 0 10px 0 0;
+            }
+        }
+    }
+}
